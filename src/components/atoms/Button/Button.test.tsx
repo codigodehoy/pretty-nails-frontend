@@ -1,14 +1,31 @@
+import { Button } from "./Button";
+
 import { render, screen } from "@testing-library/react";
-import { ButtonExample } from "./ButtonExample";
+import userEvent from '@testing-library/user-event'
 import "@testing-library/jest-dom";
 
-// TODO: Update this test when the button has been implemented
-describe("Name of the group", () => {
-  it("should ", () => {
-    render(<ButtonExample />);
+const setup = () => {
+  return {
+    onClick: jest.fn(),
+    user: userEvent
+  }
+}
 
-    const button = screen.getByRole("button", { name: "Button Example" });
+describe("Button", () => {
+  const {onClick, user} = setup();
+  it("should display the button component ", () => {
+    render(<Button onClick={onClick}>{"Reserve"}</Button>);
 
-    expect(button).toHaveTextContent("Button Example");
+    const button = screen.getByRole("button", { name: "Reserve" });
+
+    expect(button).toHaveTextContent("Reserve");
+  });
+  it("should invoke the onClick function ", async () => {
+    render(<Button onClick={onClick}>{"Reserve"}</Button>);
+
+    const button = screen.getByRole("button", { name: "Reserve" });
+    await user.click(button)
+
+    expect(onClick).toHaveBeenCalled();
   });
 });
