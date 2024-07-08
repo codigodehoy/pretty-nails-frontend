@@ -4,5 +4,5 @@ start:
 test:
 	npm run test
 
-link:
+lint:
 	npm run lint
