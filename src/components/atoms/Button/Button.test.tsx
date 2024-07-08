@@ -1,18 +1,18 @@
 import { Button } from "./Button";
 
 import { render, screen } from "@testing-library/react";
-import userEvent from '@testing-library/user-event'
+import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 
 const setup = () => {
   return {
     onClick: jest.fn(),
-    user: userEvent
-  }
-}
+    user: userEvent,
+  };
+};
 
 describe("Button", () => {
-  const {onClick, user} = setup();
+  const { onClick, user } = setup();
   it("should display the button component ", () => {
     render(<Button onClick={onClick}>{"Reserve"}</Button>);
 
@@ -24,7 +24,7 @@ describe("Button", () => {
     render(<Button onClick={onClick}>{"Reserve"}</Button>);
 
     const button = screen.getByRole("button", { name: "Reserve" });
-    await user.click(button)
+    await user.click(button);
 
     expect(onClick).toHaveBeenCalled();
   });
