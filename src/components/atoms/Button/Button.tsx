@@ -1,6 +1,6 @@
 import { Button as MuiButton } from "@mui/material";
-import { buttonStyle } from "./Style";
 import { ButtonProps } from "./Type";
+import { buttonStyle } from "./Style";
 
 export const Button = ({
   onClick,
