@@ -5,15 +5,22 @@ import { InputProps } from "./Type";
 
 export const Input = ({
   label,
+  value,
+  name,
+  error,
   onChange,
+  helperText,
   variant = "outlined",
 }: InputProps) => {
   return (
     <TextField
-      id="outlined-basic"
-      label={label}
-      variant={variant}
+      helperText={error ? helperText : null}
+      error={!!error}
       onChange={onChange}
+      value={value}
+      label={label}
+      name={name}
+      variant={variant}
       sx={inputStyle}
     />
   );
