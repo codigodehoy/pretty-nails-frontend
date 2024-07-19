@@ -44,7 +44,7 @@ describe("Field Form", () => {
 
     expect(props.onSubmit).toHaveBeenCalled();
   });
-  it("should invoke the setValues function when the onChange is called", async () => {
+  it("should invoke the setValues function when a user type in the input field", async () => {
     render(<FormFields {...props} />);
 
     const name = screen.getByRole("textbox", { name: "Name" });
