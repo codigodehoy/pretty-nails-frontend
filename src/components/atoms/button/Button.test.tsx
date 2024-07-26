@@ -7,7 +7,7 @@ import "@testing-library/jest-dom";
 const setup = () => {
   return {
     onClick: jest.fn(),
-    user: userEvent,
+    user: userEvent.setup(),
   };
 };
 
